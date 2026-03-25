@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewsMAN - Rapoarte</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <!-- List Selector -->
+            <div class="list-selector-container">
+                <select class="list-selector" id="listSelector">
+                    <option value="lista-principala">Lista Principală</option>
+                    <option value="lista-clienti">Lista Clienți</option>
+                    <option value="lista-newsletter">Lista Newsletter</option>
+                    <option value="lista-vip">Lista VIP</option>
+                </select>
+            </div>
+
+            <!-- Navigation Menu -->
+            <nav class="sidebar-nav">
+                <ul class="menu-list">
+                    <li>
+                        <a href="index.html#dashboard" class="menu-item" data-page="dashboard">
+                            <span class="menu-icon">📊</span>
+                            <span class="menu-label">Dashboard</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#newsletters" class="menu-item" data-page="newsletters">
+                            <span class="menu-icon">📧</span>
+                            <span class="menu-label">Newsletters</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#abonati" class="menu-item" data-page="abonati">
+                            <span class="menu-icon">👥</span>
+                            <span class="menu-label">Abonați</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#ecommerce" class="menu-item" data-page="ecommerce">
+                            <span class="menu-icon">🛒</span>
+                            <span class="menu-label">E-Commerce</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#automatizari" class="menu-item" data-page="automatizari">
+                            <span class="menu-icon">⚙️</span>
+                            <span class="menu-label">Automatizări</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#formulare" class="menu-item" data-page="formulare">
+                            <span class="menu-icon">📝</span>
+                            <span class="menu-label">Formulare</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#site-uri" class="menu-item" data-page="site-uri">
+                            <span class="menu-icon">🌐</span>
+                            <span class="menu-label">Site-uri</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="rapoarte.html" class="menu-item active" data-page="rapoarte">
+                            <span class="menu-icon">📈</span>
+                            <span class="menu-label">Rapoarte</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#setari" class="menu-item" data-page="setari">
+                            <span class="menu-icon">🔧</span>
+                            <span class="menu-label">Setări</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#integrari" class="menu-item" data-page="integrari">
+                            <span class="menu-icon">🔌</span>
+                            <span class="menu-label">Integrări</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#sms" class="menu-item" data-page="sms">
+                            <span class="menu-icon">💬</span>
+                            <span class="menu-label">SMS</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="index.html#tranzactional" class="menu-item" data-page="tranzactional">
+                            <span class="menu-icon">💳</span>
+                            <span class="menu-label">Tranzacțional</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Logo Footer -->
+            <div class="sidebar-footer">
+                <div class="logo-container">
+                    <h1 class="logo-text">NewsMAN</h1>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="dashboard-header">
+                <div class="header-left">
+                    <h1 class="page-title" id="pageTitle">Rapoarte</h1>
+                    <div class="search-container">
+                        <input type="text" class="search-input" placeholder="Caută campanii, abonați, automatizări...">
+                        <span class="search-icon">🔍</span>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <a class="btn-secondary" href="index.html" style="text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                        <span>←</span> Înapoi
+                    </a>
+                </div>
+            </div>
+
+            <div class="dashboard-content" id="dashboardContent">
+                <div class="page-content active" id="page-rapoarte">
+                    <!-- Reports Header -->
+                    <div class="reports-header">
+                        <div class="reports-header-left">
+                            <h2>Rapoarte</h2>
+                            <p class="reports-subtitle">Analizează performanța campaniilor și abonaților</p>
+                        </div>
+                        <div class="reports-header-actions">
+                            <button class="btn-secondary">
+                                <span>📊</span> Raport Personalizat
+                            </button>
+                            <button class="btn-secondary">
+                                <span>📥</span> Export toate
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Report Type Tabs -->
+                    <div class="report-tabs-container">
+                        <div class="report-tabs">
+                            <button class="report-tab active" data-report="campanii">
+                                <span>📧</span> Campanii Email
+                            </button>
+                            <button class="report-tab" data-report="abonati">
+                                <span>👥</span> Abonați
+                            </button>
+                            <button class="report-tab" data-report="revenue">
+                                <span>💰</span> Revenue
+                            </button>
+                            <button class="report-tab" data-report="automatizari">
+                                <span>⚙️</span> Automatizări
+                            </button>
+                            <button class="report-tab" data-report="formulare">
+                                <span>📝</span> Formulare
+                            </button>
+                            <button class="report-tab" data-report="segmente">
+                                <span>🎯</span> Segmente
+                            </button>
+                            <button class="report-tab" data-report="site-uri">
+                                <span>🌐</span> Site-uri
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Date Range Picker -->
+                    <div class="report-filters">
+                        <div class="date-range-selector">
+                            <label>Perioadă:</label>
+                            <select class="date-range-select">
+                                <option value="7d">Ultimele 7 zile</option>
+                                <option value="30d" selected>Ultimele 30 zile</option>
+                                <option value="90d">Ultimele 90 zile</option>
+                                <option value="1y">Ultimul an</option>
+                                <option value="custom">Personalizat</option>
+                            </select>
+                        </div>
+                        <div class="list-filter">
+                            <label>Listă:</label>
+                            <select class="list-filter-select">
+                                <option value="all">Toate listele</option>
+                                <option value="lista-principala">Lista Principală</option>
+                                <option value="lista-clienti">Lista Clienți</option>
+                                <option value="lista-newsletter">Lista Newsletter</option>
+                                <option value="lista-vip">Lista VIP</option>
+                            </select>
+                        </div>
+                        <div class="campaign-type-filter">
+                            <label>Tip Campanie:</label>
+                            <select class="campaign-type-select">
+                                <option value="all">Toate</option>
+                                <option value="regular">Regular</option>
+                                <option value="automation">Automatizare</option>
+                                <option value="ab-test">A/B Test</option>
+                            </select>
+                        </div>
+                        <button class="btn-primary btn-small">
+                            <span>🔍</span> Aplică
+                        </button>
+                    </div>
+
+                    <!-- Campanii Email Report -->
+                    <div class="report-content active" id="report-campanii">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Campanii Trimise</h3>
+                                    <span class="report-stat-badge positive">+12%</span>
+                                </div>
+                                <div class="report-stat-value">24</div>
+                                <div class="report-stat-change">+3 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Emailuri Trimise</h3>
+                                    <span class="report-stat-badge positive">+8%</span>
+                                </div>
+                                <div class="report-stat-value">287,456</div>
+                                <div class="report-stat-change">+21,234 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Deschidere</h3>
+                                    <span class="report-stat-badge positive">+2.1%</span>
+                                </div>
+                                <div class="report-stat-value">24.5%</div>
+                                <div class="report-stat-change">Media industriei: 21.3%</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Click</h3>
+                                    <span class="report-stat-badge negative">-0.5%</span>
+                                </div>
+                                <div class="report-stat-value">3.2%</div>
+                                <div class="report-stat-change">Media industriei: 2.6%</div>
+                            </div>
+
+                            <!-- Conversion rate is intentionally placed after Click and before Dezabonare -->
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Conversie</h3>
+                                    <span class="report-stat-badge positive">+0.3%</span>
+                                </div>
+                                <div class="report-stat-value">2.8%</div>
+                                <div class="report-stat-change">Media industriei: 2.1%</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Dezabonare</h3>
+                                    <span class="report-stat-badge neutral">0.02%</span>
+                                </div>
+                                <div class="report-stat-value">0.12%</div>
+                                <div class="report-stat-change">Media industriei: 0.2%</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <div class="chart-card-header">
+                                    <h3>Performanță Campanii în Timp</h3>
+                                    <div class="chart-controls">
+                                        <button class="chart-control-btn active">Deschidere</button>
+                                        <button class="chart-control-btn">Click</button>
+                                        <button class="chart-control-btn">Revenue</button>
+                                    </div>
+                                </div>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic performanță campanii - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-table-section">
+                            <div class="report-table-card">
+                                <div class="table-header">
+                                    <h3>Performanță Campanii</h3>
+                                    <div class="table-actions">
+                                        <button class="btn-icon" title="Export">
+                                            <span>📥</span>
+                                        </button>
+                                        <button class="btn-icon" title="Refresh">
+                                            <span>🔄</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-container">
+                                    <div class="page-placeholder">
+                                        <p>Tabelul complet va fi afișat aici (campanii + rate-uri).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-insights-section">
+                            <div class="insight-card">
+                                <h4>📈 Insight</h4>
+                                <p>Automatizările tind să genereze rezultate mai stabile pe termen lung.</p>
+                            </div>
+                            <div class="insight-card">
+                                <h4>🎯 Insight</h4>
+                                <p>Segmentele cele mai active tind să ridice rata de conversie.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Abonați Report -->
+                    <div class="report-content" id="report-abonati">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Total Abonați</h3>
+                                    <span class="report-stat-badge positive">+4%</span>
+                                </div>
+                                <div class="report-stat-value">45,678</div>
+                                <div class="report-stat-change">+2,100 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Abonați Noi</h3>
+                                    <span class="report-stat-badge positive">+18%</span>
+                                </div>
+                                <div class="report-stat-value">7,234</div>
+                                <div class="report-stat-change">+1,206 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rata Aktivare</h3>
+                                    <span class="report-stat-badge positive">+1.2%</span>
+                                </div>
+                                <div class="report-stat-value">68.4%</div>
+                                <div class="report-stat-change">Abonați activi / total</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Dezabonări</h3>
+                                    <span class="report-stat-badge negative">-0.3%</span>
+                                </div>
+                                <div class="report-stat-value">0.12%</div>
+                                <div class="report-stat-change">Sub nivelul mediu</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rată Click</h3>
+                                    <span class="report-stat-badge positive">+0.4%</span>
+                                </div>
+                                <div class="report-stat-value">3.2%</div>
+                                <div class="report-stat-change">Click / delivered</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rată Conversie</h3>
+                                    <span class="report-stat-badge positive">+0.3%</span>
+                                </div>
+                                <div class="report-stat-value">2.8%</div>
+                                <div class="report-stat-change">Conversion / click</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <h3>Evoluție Abonați</h3>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic abonați - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-table-section">
+                            <div class="report-table-card">
+                                <div class="table-header">
+                                    <h3>Distribuție Abonați</h3>
+                                </div>
+                                <div class="table-container">
+                                    <div class="page-placeholder">
+                                        <p>Listă completă (segmentare + status) va fi afișată aici.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revenue Report -->
+                    <div class="report-content" id="report-revenue">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Revenue Total</h3>
+                                    <span class="report-stat-badge positive">+4%</span>
+                                </div>
+                                <div class="report-stat-value">€26.48</div>
+                                <div class="report-stat-change">+€1.26 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Revenue per Click</h3>
+                                    <span class="report-stat-badge positive">+8%</span>
+                                </div>
+                                <div class="report-stat-value">€26.45</div>
+                                <div class="report-stat-change">+€1.98 față de perioada anterioară</div>
+                            </div>
+
+                            <!-- Requested: Average Order Value in the middle of the stats -->
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Average Order Value (AOV)</h3>
+                                    <span class="report-stat-badge positive">+3%</span>
+                                </div>
+                                <div class="report-stat-value">€24.10</div>
+                                <div class="report-stat-change">Valoare medie comandă</div>
+                            </div>
+
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Conversii</h3>
+                                    <span class="report-stat-badge positive">+15%</span>
+                                </div>
+                                <div class="report-stat-value">928</div>
+                                <div class="report-stat-change">+121 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rată Refund</h3>
+                                    <span class="report-stat-badge negative">-0.4%</span>
+                                </div>
+                                <div class="report-stat-value">0.6%</div>
+                                <div class="report-stat-change">Reducere față de medie</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>ROAS</h3>
+                                    <span class="report-stat-badge positive">+7%</span>
+                                </div>
+                                <div class="report-stat-value">3.2x</div>
+                                <div class="report-stat-change">Revenue / cost estimat</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <h3>Evoluție Revenue</h3>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic evoluție revenue - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="page-placeholder">
+                            <h3>Raport Detaliat Revenue</h3>
+                            <p>Conținutul complet pentru raportul revenue va fi disponibil aici.</p>
+                        </div>
+                    </div>
+
+                    <!-- Automatizări Report -->
+                    <div class="report-content" id="report-automatizari">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Automatizări Active</h3>
+                                    <span class="report-stat-badge positive">+3</span>
+                                </div>
+                                <div class="report-stat-value">12</div>
+                                <div class="report-stat-change">+3 noi automatizări</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Emailuri Trimise</h3>
+                                    <span class="report-stat-badge positive">+25%</span>
+                                </div>
+                                <div class="report-stat-value">45,678</div>
+                                <div class="report-stat-change">+9,135 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Deschidere</h3>
+                                    <span class="report-stat-badge positive">+3.2%</span>
+                                </div>
+                                <div class="report-stat-value">38.5%</div>
+                                <div class="report-stat-change">Media campaniilor: 24.5%</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Click</h3>
+                                    <span class="report-stat-badge positive">+1.8%</span>
+                                </div>
+                                <div class="report-stat-value">6.2%</div>
+                                <div class="report-stat-change">Media campaniilor: 3.2%</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Abonați în Flux</h3>
+                                    <span class="report-stat-badge neutral">-</span>
+                                </div>
+                                <div class="report-stat-value">3,456</div>
+                                <div class="report-stat-change">Abonați activi în automatizări</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Revenue Generat</h3>
+                                    <span class="report-stat-badge positive">+22%</span>
+                                </div>
+                                <div class="report-stat-value">€8,945</div>
+                                <div class="report-stat-change">+€1,613 față de perioada anterioară</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <div class="chart-card-header">
+                                    <h3>Performanță Automatizări</h3>
+                                    <div class="chart-controls">
+                                        <button class="chart-control-btn active">Emailuri Trimise</button>
+                                        <button class="chart-control-btn">Deschideri</button>
+                                        <button class="chart-control-btn">Click-uri</button>
+                                    </div>
+                                </div>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic performanță automatizări - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-insights-section">
+                            <div class="insight-card">
+                                <h4>📌 Insight</h4>
+                                <p>Automatizările generează cu 15% mai mult revenue decât campaniile manuale.</p>
+                            </div>
+                            <div class="insight-card">
+                                <h4>⚡ Insight</h4>
+                                <p>Flow-urile cu contact mai rapid (sub 10 min) au rate de click mai mari.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulare Report -->
+                    <div class="report-content" id="report-formulare">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Formulare Active</h3>
+                                    <span class="report-stat-badge positive">+2</span>
+                                </div>
+                                <div class="report-stat-value">8</div>
+                                <div class="report-stat-change">+2 noi formulare</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Total Vizualizări</h3>
+                                    <span class="report-stat-badge positive">+18%</span>
+                                </div>
+                                <div class="report-stat-value">125,678</div>
+                                <div class="report-stat-change">+19,156 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Total Completări</h3>
+                                    <span class="report-stat-badge positive">+22%</span>
+                                </div>
+                                <div class="report-stat-value">8,456</div>
+                                <div class="report-stat-change">+1,523 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rate Conversie</h3>
+                                    <span class="report-stat-badge positive">+0.4%</span>
+                                </div>
+                                <div class="report-stat-value">6.7%</div>
+                                <div class="report-stat-change">Media industriei: 5.2%</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Abonați Noi</h3>
+                                    <span class="report-stat-badge positive">+20%</span>
+                                </div>
+                                <div class="report-stat-value">7,234</div>
+                                <div class="report-stat-change">+1,206 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Timp Mediu Completare</h3>
+                                    <span class="report-stat-badge negative">+5s</span>
+                                </div>
+                                <div class="report-stat-value">42s</div>
+                                <div class="report-stat-change">+5 secunde față de perioada anterioară</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <div class="chart-card-header">
+                                    <h3>Conversii Formulare în Timp</h3>
+                                    <div class="chart-controls">
+                                        <button class="chart-control-btn active">Vizualizări</button>
+                                        <button class="chart-control-btn">Completări</button>
+                                        <button class="chart-control-btn">Rate Conversie</button>
+                                    </div>
+                                </div>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic conversii formulare - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-insights-section">
+                            <div class="insight-card">
+                                <h4>🎯 Insight</h4>
+                                <p>Formularele embedded au conversie mai bună decât cele clasice, în majoritatea cazurilor.</p>
+                            </div>
+                            <div class="insight-card">
+                                <h4>💡 Insight</h4>
+                                <p>Formularele cu câmpuri mai puține tind să reducă timpul și să crească conversia.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Segmente Report -->
+                    <div class="report-content" id="report-segmente">
+                        <div class="report-stats-grid">
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Segmente Active</h3>
+                                    <span class="report-stat-badge positive">+3</span>
+                                </div>
+                                <div class="report-stat-value">15</div>
+                                <div class="report-stat-change">+3 noi segmente</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Total Abonați Segmentați</h3>
+                                    <span class="report-stat-badge positive">+8%</span>
+                                </div>
+                                <div class="report-stat-value">38,456</div>
+                                <div class="report-stat-change">+2,847 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Rata Utilizare</h3>
+                                    <span class="report-stat-badge positive">+12%</span>
+                                </div>
+                                <div class="report-stat-value">84.2%</div>
+                                <div class="report-stat-change">Segmente folosite în campanii</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Revenue Generat</h3>
+                                    <span class="report-stat-badge positive">+25%</span>
+                                </div>
+                                <div class="report-stat-value">€15,678</div>
+                                <div class="report-stat-change">+€3,135 față de perioada anterioară</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Performanță Medie</h3>
+                                    <span class="report-stat-badge positive">+3.5%</span>
+                                </div>
+                                <div class="report-stat-value">32.1%</div>
+                                <div class="report-stat-change">Rată deschidere medie</div>
+                            </div>
+                            <div class="report-stat-card">
+                                <div class="report-stat-header">
+                                    <h3>Segment Top</h3>
+                                    <span class="report-stat-badge positive">#1</span>
+                                </div>
+                                <div class="report-stat-value">Abonați Activi</div>
+                                <div class="report-stat-change">Cea mai mare rată de utilizare</div>
+                            </div>
+                        </div>
+
+                        <div class="report-chart-section">
+                            <div class="report-chart-card">
+                                <h3>Creșterea Segmente în Timp</h3>
+                                <div class="chart-placeholder large-chart">
+                                    <p>Grafic evoluție segmente - va fi afișat aici</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="report-table-section">
+                            <div class="report-table-card">
+                                <div class="table-header">
+                                    <h3>Segmente Active (Rich)</h3>
+                                    <div class="table-actions">
+                                        <button class="btn-secondary btn-small">
+                                            <span>➕</span> Segment Nou
+                                        </button>
+                                        <button class="btn-icon" title="Export">
+                                            <span>📥</span>
+                                        </button>
+                                        <button class="btn-icon" title="Refresh">
+                                            <span>🔄</span>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="table-container">
+                                    <div class="page-placeholder">
+                                        <p>Table + builder (condiții + preview) va fi afișat aici.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Site-uri Report -->
+                    <div class="report-content" id="report-site-uri">
+                        <div class="page-placeholder">
+                            <h3>Raport Site-uri</h3>
+                            <p>Conținutul complet pentru raportul site-urilor va fi disponibil aici.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
