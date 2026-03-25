@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle menu item clicks
     menuItems.forEach(item => {
         item.addEventListener('click', function(e) {
+            const href = this.getAttribute('href') || '';
+            // Only handle "single-page app" navigation when the link is a hash (e.g. "#dashboard").
+            // For real page links (e.g. "rapoarte.html"), allow the browser to navigate normally.
+            if (!href.startsWith('#')) return;
             e.preventDefault();
             
             // Get the page name from data attribute
@@ -64,6 +68,10 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Handle initial page load from URL hash
     const hash = window.location.hash.substring(1);
+    if (hash === 'rapoarte') {
+        window.location.href = 'rapoarte.html';
+        return;
+    }
     if (hash && pageTitles[hash]) {
         const menuItem = document.querySelector(`[data-page="${hash}"]`);
         if (menuItem) {
@@ -74,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Handle browser back/forward buttons
     window.addEventListener('popstate', function() {
         const hash = window.location.hash.substring(1);
+        if (hash === 'rapoarte') {
+            window.location.href = 'rapoarte.html';
+            return;
+        }
         if (hash && pageTitles[hash]) {
             const menuItem = document.querySelector(`[data-page="${hash}"]`);
             if (menuItem) {
